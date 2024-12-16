@@ -25,7 +25,7 @@ try {
   // Initialize Firestore with persistent cache configuration
   db = initializeFirestore(app, {
     localCache: persistentLocalCache({
-      tabManager: persistentSingleTabManager()
+      tabManager: persistentSingleTabManager(undefined)
     })
   });
   

@@ -83,10 +83,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
               {
                 duration: 5000,
                 icon: '✉️',
-                action: {
-                  text: 'Resend',
-                  onClick: () => sendVerificationEmail()
-                }
               }
             );
           }

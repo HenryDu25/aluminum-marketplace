@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { X, Bell, AlertTriangle } from 'lucide-react';
-import type { PriceAlert } from '../../types/alerts';
+import type {NotificationChannel, PriceAlert} from '../../types/alerts';
 
 interface CreateAlertModalProps {
   onClose: () => void;
@@ -11,7 +11,7 @@ export default function CreateAlertModal({ onClose, onCreate }: CreateAlertModal
   const [formData, setFormData] = useState({
     targetPrice: '',
     customMessage: '',
-    notificationChannels: ['web'],
+    notificationChannels: ['web'] as NotificationChannel[],
     category: 'MCX' as const,
     isActive: true
   });
@@ -43,7 +43,8 @@ export default function CreateAlertModal({ onClose, onCreate }: CreateAlertModal
     try {
       await onCreate({
         ...formData,
-        targetPrice: parseFloat(formData.targetPrice)
+        targetPrice: parseFloat(formData.targetPrice),
+        currentPrice: parseFloat(formData.targetPrice)
       });
       onClose();
     } catch (error) {
@@ -117,16 +118,16 @@ export default function CreateAlertModal({ onClose, onCreate }: CreateAlertModal
                 { id: 'web', label: 'Web App', icon: Bell },
                 { id: 'whatsapp', label: 'WhatsApp', icon: Bell },
                 { id: 'email', label: 'Email', icon: Bell }
-              ].map(({ id, label, icon: Icon }) => (
+              ].map(({ id, label}) => (
                 <label key={id} className="flex items-center">
                   <input
                     type="checkbox"
-                    checked={formData.notificationChannels.includes(id)}
+                    checked={formData.notificationChannels.includes(id as NotificationChannel)}
                     onChange={(e) => {
                       const channels = e.target.checked
-                        ? [...formData.notificationChannels, id]
+                        ? [...formData.notificationChannels, id as NotificationChannel]
                         : formData.notificationChannels.filter(c => c !== id);
-                      setFormData({ ...formData, notificationChannels: channels });
+                      setFormData({ ...formData, notificationChannels: channels as NotificationChannel[] });
                     }}
                     className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                   />

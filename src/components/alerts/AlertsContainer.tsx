@@ -1,4 +1,3 @@
-import React from 'react';
 import PriceAlertBox from './PriceAlertBox';
 import { useMCXPrice } from '../../hooks/useMCXPrice';
 import { useLMEHistory } from '../../hooks/useLMEHistory';

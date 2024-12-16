@@ -10,7 +10,7 @@ interface Props {
 
 export function AlertForm({ onSubmit, onClose, commodityId }: Props) {
   const [alertData, setAlertData] = useState({
-    type: 'PRICE_ABOVE',
+    type: 'PRICE_ABOVE' as 'PRICE_ABOVE' | 'PRICE_BELOW' | 'PERCENTAGE_CHANGE',
     value: 0,
     message: '',
   });

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Bell, Trash2 } from 'lucide-react';
 import { usePriceAlert } from '../hooks/usePriceAlert';
 import { format } from 'date-fns';

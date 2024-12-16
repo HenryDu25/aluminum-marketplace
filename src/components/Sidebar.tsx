@@ -19,6 +19,7 @@ import {
 
 interface Props {
   currentPage: string;
+  onPageChange: () => void;
   isCollapsed: boolean;
   onCollapse: (collapsed: boolean) => void;
   isDarkMode: boolean;
@@ -27,7 +28,8 @@ interface Props {
 
 export default function Sidebar({ 
   currentPage, 
-  isCollapsed, 
+  isCollapsed,
+  onPageChange,
   onCollapse,
   isDarkMode,
   onThemeChange

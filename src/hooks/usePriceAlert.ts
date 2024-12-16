@@ -96,7 +96,6 @@ export function usePriceAlert() {
 
   return {
     alerts,
-    createAlert,
-    deleteAlert
+    setAlerts
   };
 }

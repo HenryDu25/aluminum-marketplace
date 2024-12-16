@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { format } from 'date-fns';
 import { Edit2, Trash2, Bell, MessageCircle, Mail, AlertCircle } from 'lucide-react';
 import { PriceAlert } from '../../types/alerts';

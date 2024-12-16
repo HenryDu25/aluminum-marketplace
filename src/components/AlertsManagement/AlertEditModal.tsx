@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
-import { PriceAlert } from '../../types/alerts';
+import {NotificationChannel, PriceAlert} from '../../types/alerts';
 
 interface AlertEditModalProps {
   alert: PriceAlert;
@@ -104,12 +104,12 @@ export default function AlertEditModal({ alert, onClose, onSave }: AlertEditModa
                 <label key={channel} className="flex items-center">
                   <input
                     type="checkbox"
-                    checked={formData.notificationChannels.includes(channel)}
+                    checked={formData.notificationChannels.includes(channel as NotificationChannel)}
                     onChange={(e) => {
                       const channels = e.target.checked
                         ? [...formData.notificationChannels, channel]
                         : formData.notificationChannels.filter(c => c !== channel);
-                      setFormData({ ...formData, notificationChannels: channels });
+                      setFormData({ ...formData, notificationChannels: channels as NotificationChannel[] });
                     }}
                     className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                   />

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Search, Filter, SlidersHorizontal, Plus } from 'lucide-react';
+import { useState } from 'react';
+import { Filter, SlidersHorizontal, Plus } from 'lucide-react';
 import AlertsList from './AlertsList';
 import AlertFilters from './AlertFilters';
 import AlertSearch from './AlertSearch';
@@ -21,7 +21,6 @@ export default function AlertsManagement() {
   const {
     alerts,
     loading,
-    error,
     totalPages,
     createAlert,
     deleteAlert,
@@ -108,7 +107,7 @@ export default function AlertsManagement() {
       {showCreateModal && (
         <CreateAlertModal
           onClose={() => setShowCreateModal(false)}
-          onCreate={createAlert}
+          onCreate={createAlert as any}
         />
       )}
     </div>

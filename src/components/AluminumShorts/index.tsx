@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Search, Sparkles } from 'lucide-react';
 import { NewsItem as NewsItemComponent } from './NewsItem';
 import { NotificationModal } from './NotificationModal';
 import { mockNews } from './mockData';
-import type { NotificationPreferences } from './types';
+import type {NewsItem, NotificationPreferences} from './types';
 
 export default function AluminumShorts() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -79,7 +79,7 @@ export default function AluminumShorts() {
       {/* News Grid */}
       <div className="grid grid-cols-1 gap-6">
         {filteredNews.map(news => (
-          <NewsItemComponent key={news.id} news={news} />
+          <NewsItemComponent key={news.id} news={news as NewsItem} />
         ))}
       </div>
 

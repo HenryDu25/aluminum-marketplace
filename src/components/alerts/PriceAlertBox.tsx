@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { Bell, AlertTriangle } from 'lucide-react';
-import { LMEPriceData } from '../../types/market';
 
 interface PriceAlertBoxProps {
   type: 'MCX' | 'LME';

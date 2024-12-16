@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowsUpDown } from 'lucide-react';
+import { ArrowUpDown } from 'lucide-react';
 
 export default function PriceSpreadCard() {
   return (
@@ -13,7 +13,7 @@ export default function PriceSpreadCard() {
           </h2>
           <p className="text-sm text-gray-500">MCX - LME</p>
         </div>
-        <ArrowsUpDown className="w-6 h-6 text-blue-600" />
+        <ArrowUpDown className="w-6 h-6 text-blue-600" />
       </div>
 
       <div className="flex items-baseline gap-2">

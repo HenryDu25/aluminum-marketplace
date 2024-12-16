@@ -9,8 +9,8 @@ interface Props {
 }
 
 export function CommodityCard({ commodity, onSetAlert }: Props) {
-  const { priceData, loading, error } = useMCXPrice('2024-11-29');
-  const isPositiveChange = (priceData?.change ?? commodity.change) >= 0;
+  const { priceData, loading, error } = useMCXPrice();
+  const isPositiveChange = (priceData?.changePercent ?? commodity.change) >= 0;
 
   return (
     <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">

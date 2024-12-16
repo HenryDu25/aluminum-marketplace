@@ -4,7 +4,7 @@ import { NotificationChannel } from '../types/alerts';
 import { usePriceAlert } from '../hooks/usePriceAlert';
 
 export default function PriceAlertForm() {
-  const { createAlert } = usePriceAlert();
+  // const { createAlert } = usePriceAlert();
   const [targetPrice, setTargetPrice] = useState('');
   const [customMessage, setCustomMessage] = useState('');
   const [channels, setChannels] = useState<NotificationChannel[]>(['web']);
@@ -15,11 +15,11 @@ export default function PriceAlertForm() {
     if (!targetPrice) return;
 
     try {
-      await createAlert(
-        parseFloat(targetPrice),
-        customMessage,
-        channels
-      );
+      // await createAlert(
+      //   parseFloat(targetPrice),
+      //   customMessage,
+      //   channels
+      // );
 
       // Reset form
       setTargetPrice('');
