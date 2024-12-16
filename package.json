@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "homepage": "https://<your-github-username>.github.io/<repository-name>",
+  "homepage": "https://henrydu25.github.io/aluminum-marketplace",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
