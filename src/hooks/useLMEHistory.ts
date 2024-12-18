@@ -5,7 +5,7 @@ import axios from "axios";
 import {load} from "cheerio";
 
 export function useLMEHistory() {
-  const [data, setData] = useState<LMEHistoryData[]>(mockLMEHistory);
+  const [data, setData] = useState<LMEHistoryData[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -15,7 +15,7 @@ export function useLMEHistory() {
         .then(response => {
             const $ = load(response.data);
             const tableRows = $('table').first().find('tr').toArray();
-            const parsedData = tableRows.map(row => {
+            const parsedData: any[] = tableRows.map(row => {
                 const cells = $(row).find('td').toArray();
                 return {
                     date: $(cells[0]).text().trim().replace(".", ""),
@@ -25,7 +25,11 @@ export function useLMEHistory() {
 
             // Calculate the change based on the previous day's price
             for (let i = 0; i < parsedData.length-1; i++) {
-                parsedData[i].previousDayPrice = parsedData[i + 1].price;
+                parsedData[i] = {
+                    ...parsedData[i],
+                    previousDayPrice : parsedData[i + 1].price,
+                    change : ((parsedData[i].price - parsedData[i + 1].price) / parsedData[i + 1].price) * 100
+                };
             }
 
             parsedData.pop()

@@ -2,6 +2,7 @@ export interface LMEHistoryData {
   date: string;
   price: number;
   change: number;
+  previousDayPrice: number;
 }
 
 export interface MCXPriceData {
