@@ -8,7 +8,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "deploy": "gh-pages -d dist"
+    "postbuild": "cp CNAME dist/CNAME",
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
     "@types/node": "^20.11.16",
