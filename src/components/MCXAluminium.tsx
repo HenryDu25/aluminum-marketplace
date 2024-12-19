@@ -19,7 +19,7 @@ export default function MCXAluminium() {
                         Source: 5paisa.com
                     </p>
                 </div>
-                <span className="text-gray-500 dark:text-gray-400">Future Nov 2024</span>
+                <span className="text-gray-500 dark:text-gray-400">Current Spot Price</span>
             </div>
 
             <div className="mb-4">
